@@ -13,31 +13,31 @@ interface CarouselImage {
 
 const carouselImages: CarouselImage[] = [
   {
-    src: "/taj-mahal-sunrise-golden-light-reflecting-in-water.jpg",
+    src: "/Gallery/Taj Mahal - WhatsApp Image 2025-09-06 at 19.53.59_b4ce6638.jpg",
     alt: "Taj Mahal at sunrise",
-    title: "Taj Mahal at Sunrise",
+    title: "✨ Majestic Taj Mahal at Sunrise 🌅",
   },
   {
-    src: "/jaipur-hawa-mahal-palace-of-winds-pink-city.jpg",
-    alt: "Jaipur – Palais des vents",
-    title: "Jaipur – Palais des Vents",
+    src: "/Gallery/QutubMinar.jpg",
+    alt: "Qutub Minar",
+    title: "🏛️ Timeless Beauty of Qutub Minar",
   },
   {
-    src: "/pushkar-sacred-lake-sunset-temples-reflection.jpg",
-    alt: "Pushkar – Lac sacré au coucher du soleil",
-    title: "Pushkar – Lac Sacré au Coucher du Soleil",
+    src: "/Gallery/Humayun's Tomb (1).jpg",
+    alt: "Humayun's Tomb",
+    title: "🌿 Heritage Charm of Humayun’s Tomb",
   },
   {
-    src: "/udaipur-lake-palace-floating-on-pichola-lake.jpg",
-    alt: "Udaipur – Lake Palace",
-    title: "Udaipur – Lake Palace",
+    src: "/Gallery/Buddha.jpg",
+    alt: "Buddha",
+    title: "🕊️ Serene Presence of Lord Buddha",
   },
   {
-    src: "/golden-temple-amritsar-with-reflection-in-sacred.jpg",
-    alt: "Golden Temple d'Amritsar",
-    title: "Golden Temple d'Amritsar",
+    src: "/Gallery/Ugrasen Ki Baoli (2).jpg",
+    alt: "Ugrasen Ki Baoli",
+    title: "💧 Mystical Depths of Ugrasen Ki Baoli",
   },
-]
+];
 
 export default function ImageCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)

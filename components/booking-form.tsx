@@ -11,12 +11,14 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Users, MapPin, Phone, Mail, Send } from "lucide-react"
 import { useState } from "react"
 import { tours } from "@/data/tours"
+import { useTranslation } from "@/hooks/use-translation"
 
 interface BookingFormProps {
   selectedTourId?: string
 }
 
 export default function BookingForm({ selectedTourId }: BookingFormProps) {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     // Personal Information
     firstName: "",
@@ -26,7 +28,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
     country: "",
 
     // Travel Details
-    tourId: selectedTourId || "defaultTourId", // Updated default value
+    tourId: selectedTourId || "custom",
     preferredDate: "",
     alternativeDate: "",
     numberOfTravelers: "2",
@@ -45,6 +47,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
     preferredContact: "email",
     newsletter: false,
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -68,32 +71,71 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Booking form data:", formData)
-    alert("Thank you for your booking request! Prince Kumar will contact you within 24 hours.")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          tourId: selectedTourId || "custom",
+          preferredDate: "",
+          alternativeDate: "",
+          numberOfTravelers: "2",
+          accommodationLevel: "standard",
+          dietaryRequirements: "",
+          mobilityRequirements: "",
+          specialRequests: "",
+          budgetRange: "",
+          customizations: [],
+          preferredContact: "email",
+          newsletter: false,
+        })
+        alert("Thank you for your booking request! Prince Kumar will contact you within 24 hours.")
+      } else {
+        throw new Error('Failed to send booking request')
+      }
+    } catch (error) {
+      console.error('Error sending booking request:', error)
+      alert("Sorry, there was an error sending your booking request. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const selectedTour = tours.find((tour) => tour.id === formData.tourId)
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-12">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">Book Your Indian Adventure</h1>
-        <p className="mt-4 text-lg text-muted-foreground text-pretty">
-          Tell us about your dream trip and we'll create a personalized itinerary just for you
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-8 md:py-12">
+      <div className="text-center mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight lg:text-4xl text-balance">{t("bookingTitle")}</h1>
+        <p className="mt-4 text-sm md:text-lg text-muted-foreground text-pretty">
+          {t("bookingSubtitle")}
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
         {/* Personal Information */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              Personal Information
+            <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+              <Users className="h-4 w-4 md:h-5 md:w-5" />
+              {t("personalInfo")}
             </CardTitle>
-            <CardDescription>Let us know who we'll be planning this amazing journey for</CardDescription>
+            <CardDescription className="text-sm">Let us know who we'll be planning this amazing journey for</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -146,11 +188,11 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
         {/* Travel Details */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <MapPin className="h-5 w-5" />
-              Travel Details
+            <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+              <MapPin className="h-4 w-4 md:h-5 md:w-5" />
+              {t("travelDetails")}
             </CardTitle>
-            <CardDescription>Help us plan the perfect itinerary for your group</CardDescription>
+            <CardDescription className="text-sm">Help us plan the perfect itinerary for your group</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -160,7 +202,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
                   <SelectValue placeholder="Choose a tour circuit or request custom itinerary" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="defaultTourId">Custom Itinerary</SelectItem> {/* Updated value */}
+                  <SelectItem value="custom">{t("customItinerary")}</SelectItem>
                   {tours.map((tour) => (
                     <SelectItem key={tour.id} value={tour.id}>
                       {tour.name} - {tour.duration}
@@ -244,8 +286,8 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
         {/* Special Requirements */}
         <Card>
           <CardHeader>
-            <CardTitle>Special Requirements & Preferences</CardTitle>
-            <CardDescription>Help us make your trip comfortable and memorable</CardDescription>
+            <CardTitle className="text-lg md:text-xl">{t("specialRequirements")}</CardTitle>
+            <CardDescription className="text-sm">Help us make your trip comfortable and memorable</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -276,7 +318,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
                 value={formData.specialRequests}
                 onChange={handleInputChange}
                 placeholder="Anniversary celebration, photography interests, cultural preferences, etc."
-                className="min-h-[100px]"
+                className="min-h-[80px] md:min-h-[100px]"
               />
             </div>
           </CardContent>
@@ -285,8 +327,8 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
         {/* Budget & Customizations */}
         <Card>
           <CardHeader>
-            <CardTitle>Budget & Customizations</CardTitle>
-            <CardDescription>Let us know your preferences to create the perfect experience</CardDescription>
+            <CardTitle className="text-lg md:text-xl">{t("budgetCustomizations")}</CardTitle>
+            <CardDescription className="text-sm">Let us know your preferences to create the perfect experience</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -308,7 +350,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
 
             <div className="space-y-3">
               <Label>Additional Experiences (optional)</Label>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-2 md:gap-3 sm:grid-cols-2">
                 {[
                   "Cooking classes",
                   "Yoga sessions",
@@ -338,7 +380,7 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
         {/* Communication Preferences */}
         <Card>
           <CardHeader>
-            <CardTitle>Communication Preferences</CardTitle>
+            <CardTitle className="text-lg md:text-xl">{t("communicationPrefs")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -373,17 +415,22 @@ export default function BookingForm({ selectedTourId }: BookingFormProps) {
 
         {/* Submit Button */}
         <div className="flex justify-center">
-          <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 px-8">
+          <Button 
+            type="submit" 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 px-6 md:px-8"
+            disabled={isSubmitting}
+          >
             <Send className="mr-2 h-4 w-4" />
-            Send Booking Request
+            {isSubmitting ? "Sending..." : t("sendBookingRequest")}
           </Button>
         </div>
       </form>
 
       {/* Contact Information */}
-      <div className="mt-12 text-center">
-        <h3 className="text-lg font-semibold mb-4">Need Help?</h3>
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+      <div className="mt-8 md:mt-12 text-center">
+        <h3 className="text-base md:text-lg font-semibold mb-4">{t("needHelp")}</h3>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
             <span>+91 11 1234 5678</span>

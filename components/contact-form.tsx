@@ -30,61 +30,75 @@ export default function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    console.log("Contact form data:", formData)
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-    setIsSubmitting(false)
-    alert("Your message has been sent! Prince Kumar will contact you soon.")
+      if (response.ok) {
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
+        alert("Your message has been sent! Prince Kumar will contact you soon.")
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      alert("Sorry, there was an error sending your message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+    <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">{t("contactTitle")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("contactSubtitle")}</p>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight lg:text-4xl mb-4">{t("contactTitle")}</h2>
+          <p className="text-sm md:text-lg text-muted-foreground max-w-3xl mx-auto">{t("contactSubtitle")}</p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-card/50 backdrop-blur-sm border rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch with Prince Kumar</h3>
-              <p className="text-muted-foreground mb-8">
+          <div className="space-y-6 md:space-y-8">
+            <div className="bg-card/50 backdrop-blur-sm border rounded-2xl p-6 md:p-8 shadow-lg">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Get in Touch with Prince Kumar</h3>
+              <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base">
                 Ready to explore India? Have questions about our tours? Prince Kumar is here to help you plan your
                 perfect Indian adventure with personalized service and authentic experiences.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <MapPin className="h-5 w-5 text-primary" />
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-3 md:gap-4 p-3 md:p-4 bg-primary/5 rounded-lg">
+                  <div className="bg-primary/10 p-2 md:p-3 rounded-full">
+                    <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">New Delhi, India</p>
+                    <p className="font-medium text-sm md:text-base">Location</p>
+                    <p className="text-muted-foreground text-xs md:text-sm">New Delhi, India</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Phone className="h-5 w-5 text-primary" />
+                <div className="flex items-center gap-3 md:gap-4 p-3 md:p-4 bg-primary/5 rounded-lg">
+                  <div className="bg-primary/10 p-2 md:p-3 rounded-full">
+                    <Phone className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+91 11 1234 5678</p>
+                    <p className="font-medium text-sm md:text-base">Phone</p>
+                    <p className="text-muted-foreground text-xs md:text-sm">+91 11 1234 5678</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Mail className="h-5 w-5 text-primary" />
+                <div className="flex items-center gap-3 md:gap-4 p-3 md:p-4 bg-primary/5 rounded-lg">
+                  <div className="bg-primary/10 p-2 md:p-3 rounded-full">
+                    <Mail className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">prince@voyageavecprince.com</p>
+                    <p className="font-medium text-sm md:text-base">Email</p>
+                    <p className="text-muted-foreground text-xs md:text-sm">prince@voyageavecprince.com</p>
                   </div>
                 </div>
               </div>
@@ -92,8 +106,8 @@ export default function ContactForm() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card/80 backdrop-blur-sm border rounded-2xl p-8 shadow-lg">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-card/80 backdrop-blur-sm border rounded-2xl p-6 md:p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -167,7 +181,7 @@ export default function ContactForm() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="min-h-[120px] bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20 resize-none"
+                  className="min-h-[100px] md:min-h-[120px] bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20 resize-none"
                   placeholder="Tell us about your travel plans, questions, or special requirements..."
                   required
                 />
@@ -175,7 +189,7 @@ export default function ContactForm() {
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 md:py-3"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : t("send")}

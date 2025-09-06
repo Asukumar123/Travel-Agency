@@ -24,7 +24,7 @@ export default function AboutPrince() {
         <div className="relative">
           <div className="relative h-96 rounded-xl overflow-hidden">
             <Image
-              src="/prince-kumar-portrait-with-traditional-indian-b.jpg"
+              src="/Gallery/prince.jpg"
               alt="Prince Kumar - Your Indian Travel Guide"
               fill
               className="object-cover"
@@ -32,7 +32,7 @@ export default function AboutPrince() {
           </div>
           <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-xl">
             <div className="text-center">
-              <p className="text-2xl font-bold">15+</p>
+              <p className="text-2xl font-bold">10+</p>
               <p className="text-sm">Years Experience</p>
             </div>
           </div>
