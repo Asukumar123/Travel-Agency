@@ -13,7 +13,7 @@ interface CarouselImage {
 
 const carouselImages: CarouselImage[] = [
   {
-    src: "/Gallery/Taj Mahal - WhatsApp Image 2025-09-06 at 19.53.59_b4ce6638.jpg",
+    src: "/Gallery/Taj Mahal (4).jpg",
     alt: "Taj Mahal at sunrise",
     title: "✨ Majestic Taj Mahal at Sunrise 🌅",
   },

@@ -32,8 +32,8 @@ export default function AboutPrince() {
           </div>
           <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-xl">
             <div className="text-center">
-              <p className="text-2xl font-bold">10+</p>
-              <p className="text-sm">Years Experience</p>
+              <p className="text-2xl font-bold">100+</p>
+              <p className="text-sm">Local Tourist Guide</p>
             </div>
           </div>
         </div>
@@ -172,15 +172,15 @@ export default function AboutPrince() {
         <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4" />
-            <span>+91 11 1234 5678</span>
+            <span>+91 7870524178</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="h-4 w-4" />
-            <span>prince@voyageavecprince.com</span>
+            <span>Ohprincekumar@gmail.com</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" />
-            <span>New Delhi, India</span>
+            <span>General office address Paharganj New Delhi Nearby RK ashram Metro Station</span>
           </div>
         </div>
       </div>

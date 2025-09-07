@@ -7,7 +7,7 @@ import { LanguageToggle } from "./language-toggle"
 import { useTranslation } from "@/hooks/use-translation"
 import { ThemeToggle } from "./theme-toggle"
 import { MobileNav } from "./mobile-nav"
-
+import Image from "next/image"
 export default function Header() {
   const { t } = useTranslation()
 
@@ -27,18 +27,32 @@ export default function Header() {
         
         {/* Logo */}
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <MapPin className="h-6 w-6 text-primary" />
+            <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Image
+              src="/logo2.png"
+              alt="Voyage avec Prince Logo"
+              className="h-8 w-auto"
+              width={52}
+              height={52}
+              style={{ maxHeight: 32 }}
+            />
             <span className="hidden font-bold sm:inline-block">
               Voyage avec Prince
             </span>
-          </Link>
+            </Link>
         </div>
         
         {/* Mobile Logo */}
         <div className="mr-4 flex md:hidden">
           <Link href="/" className="flex items-center space-x-2">
-            <MapPin className="h-6 w-6 text-primary" />
+            <Image
+              src="/logo1.png"
+              alt="Voyage avec Prince Logo"
+              className="h-12 w-auto"
+              width={52}
+              height={52}
+              style={{ maxHeight: 32 }}
+            />
             <span className="font-bold text-base">Voyage avec Prince</span>
           </Link>
         </div>

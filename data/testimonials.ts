@@ -1,23 +1,23 @@
 export const testimonialsData = [
   {
-    name: "Zhang Ming",
-    location: "Shanghai",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=40&auto=format&fit=crop",
+    name: "Dave",
+    location: "UK",
+    avatar: "/public/dave.jpg",
     comment:
-      "C’est la troisième fois que j’utilise les services de Chine Voyages et je suis toujours aussi satisfait. Leurs guides sont passionnés et compétents, les itinéraires bien pensés, ce qui rend chaque voyage à la fois agréable et enrichissant.",
+      "J’ai rencontré Prince dans la rue par hasard, nous avons bu un chai ensemble. Il m’a proposé de m’accompagner sur les sites majeurs de Delhi le lendemain. Prince était à l’heure, les visites se sont bien passées, le descriptif et le narratif des lieux étaient bons. Je recommande Prince comme guide lors de votre visite à Delhi : courtois, attentionné, il connaît bien sa ville. N’hésitez pas à le contacter quand vous serez à Delhi, vous ne le regretterez pas.",
   },
   {
-    name: "Li Na",
-    location: "Pékin",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=40&auto=format&fit=crop",
+    name: "Isabelle Martin",
+    location: "France",
+    avatar: "/public/issable.jpg",
     comment:
-      "Un grand merci à Chine Voyages pour avoir conçu un programme parfait pour notre famille. Les enfants ont adoré la visite du centre des pandas à Chengdu, un souvenir inoubliable que nous garderons précieusement.",
+      "Prince Yadav est un jeune guide indien. Il a étudié le français à l’Alliance Française et le parle parfaitement. Nous l’avons connu à Bodhgaya, et nous suivons son parcours depuis plusieurs années. N’hésitez pas à partager son site et ses coordonnées auprès de vos amis souhaitant se rendre en Inde !",
   },
   {
-    name: "Wang Qiang",
-    location: "Canton",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=40&auto=format&fit=crop",
+    name: "Sophie Sonam Lhamo",
+    location: "France",
+    avatar: "/public/Sophie.jpg",
     comment:
-      "Voyageant souvent seul, j’ai particulièrement apprécié les informations précises et les conseils attentionnés de Chine Voyages. Leur accompagnement a rendu mon séjour au Tibet fluide et vraiment mémorable.",
+      "Comme certains d’entre vous le savent, j’ai vécu en Inde pendant une dizaine d’années. J’ai connu Prince quand il était petit et étudiait à l’école de Shanti India, un projet caritatif auquel j’ai participé. Prince a ensuite étudié à l’Alliance Française à New Delhi. Il est maintenant guide touristique. Si vous souhaitez découvrir l’Inde à travers un voyage sur mesure selon vos envies, c’est la personne idéale. N’hésitez pas à partager l’info si vous connaissez des personnes qui souhaitent se rendre en Inde. Merci 🙏",
   },
-]
+];

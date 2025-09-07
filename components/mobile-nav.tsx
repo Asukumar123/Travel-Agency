@@ -107,7 +107,7 @@ export function MobileNav({ items }: MobileNavProps) {
           <div className="text-xs text-muted-foreground space-y-1 pt-4 border-t">
             <p className="font-medium">Prince Kumar</p>
             <p>New Delhi, India</p>
-            <p>+91 11 1234 5678</p>
+            <p>Ohprincekumar@gmail.com</p>
           </div>
         </div>
       </SheetContent>
