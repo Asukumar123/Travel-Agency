@@ -1,8 +1,9 @@
-export const enhancedRobotsCode = `import { MetadataRoute } from 'next'
+// app/robots.ts
+import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://voyageavecprince.com'
-  
+
   return {
     rules: [
       {
@@ -44,7 +45,7 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
       {
-        userAgent: 'Slurp', // Yahoo
+        userAgent: 'Slurp',
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },
@@ -62,9 +63,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: [
-      \`\${baseUrl}/sitemap.xml\`,
-    ],
-    host: baseUrl,
+    sitemap: [`${baseUrl}/sitemap.xml`],
+    // Do not use `host` since it's deprecated
   }
-}`;
+}

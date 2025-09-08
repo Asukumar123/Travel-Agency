@@ -1,39 +1,50 @@
-import { MetadataRoute } from 'next'
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /tours
+Allow: /tours/*
+Allow: /contact
+Allow: /book
+Allow: /sitemap
+Allow: /gallery
+Allow: /blog
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /*.json$
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Crawl-delay: 1
 
-export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.voyageavecprince.com'  // Use www version for consistency
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 0
 
-  return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/_next/',
-          '/private/',
-          '/temp/',
-        ],
-      },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-        ],
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-        ],
-      },
-    ],
-    sitemap: [`${baseUrl}/sitemap.xml`],
-    // Note: `host` is deprecated in robots.txt, so you can omit it safely.
-  }
-}
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+Sitemap: https://voyageavecprince.com/sitemap.xml
