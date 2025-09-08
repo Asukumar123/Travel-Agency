@@ -1,19 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static optimization
   output: 'export',
   trailingSlash: true,
-  
-  // Image optimization
+
   images: {
-    unoptimized: true, // For static export
+    unoptimized: true, // Static export mode
     formats: ['image/webp', 'image/avif'],
   },
-  
-  // Compression
+
   compress: true,
-  
-  // Headers for SEO
+
   async headers() {
     return [
       {
@@ -25,24 +21,15 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
-    ]
+    ];
   },
 
-  // Redirects for SEO
   async redirects() {
     return [
       { source: '/home', destination: '/', permanent: true },
       { source: '/index', destination: '/', permanent: true },
-    ]
+    ];
   },
+};
 
-  // Rewrites for clean URLs
-  async rewrites() {
-    return [
-      { source: '/tours/:slug', destination: '/tours/:slug' },
-    ]
-  },
-}
-
-// ✅ ESM export
-export default nextConfig
+export default nextConfig;

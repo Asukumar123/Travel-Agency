@@ -1,20 +1,20 @@
 export interface TourDay {
-  day: number
-  title: string
-  description: string
-  highlights: string[]
+  day: number;
+  title: string;
+  description: string;
+  highlights: string[];
 }
 
 export interface Tour {
-  id: string
-  name: string
-  subtitle: string
-  duration: string
-  price: string
-  image: string
-  description: string
-  highlights: string[]
-  itinerary: TourDay[]
+  id: string;
+  name: string;
+  subtitle: string;
+  duration: string;
+  price: string;
+  image: string;
+  description: string;
+  highlights: string[];
+  itinerary: TourDay[];
 }
 
 export const tours: Tour[] = [
@@ -181,12 +181,16 @@ export const tours: Tour[] = [
         title: "New Delhi Visit",
         description:
           "Visit of Delhi including Red Fort, Jama Masjid, Gandhi's cremation site, Humayun's Tomb, Lotus Temple and Lodi Gardens.",
-        highlights: ["Red Fort", "Jama Masjid", "Humayun's Tomb", "Lotus Temple", "Akshardham Temple"],
+        highlights: ["Red Fort", "Jama Masjid", "Humayun's Tomb", "Lotus Temple", "Lodi Gardens"],
       },
     ],
   },
-]
+];
+
+export function getAllTours(): Tour[] {
+  return tours;
+}
 
 export function getTourById(id: string): Tour | undefined {
-  return tours.find((tour) => tour.id === id)
+  return tours.find((tour) => tour.id === id);
 }
