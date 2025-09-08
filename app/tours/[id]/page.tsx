@@ -1,42 +1,35 @@
-import { notFound } from "next/navigation";
-import { getAllTours, getTourById } from "@/data/tours";
-import TourDetail from "@/components/tour-detail";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { notFound } from "next/navigation"
+import { getTourById } from "@/data/tours"
+import TourDetail from "@/components/tour-detail"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 interface TourPageProps {
-  params: { id: string };
-}
-
-// ✅ Add generateStaticParams to supply all valid IDs for static export
-export async function generateStaticParams() {
-  const tours = getAllTours();
-
-  return tours.map((tour) => ({
-    id: tour.id.toString(),
-  }));
+  params: {
+    id: string
+  }
 }
 
 export async function generateMetadata({ params }: TourPageProps) {
-  const tour = getTourById(params.id);
+  const tour = getTourById(params.id)
 
   if (!tour) {
     return {
       title: "Tour Not Found",
-    };
+    }
   }
 
   return {
     title: `${tour.name} - Voyage avec Prince`,
     description: tour.description,
-  };
+  }
 }
 
 export default function TourPage({ params }: TourPageProps) {
-  const tour = getTourById(params.id);
+  const tour = getTourById(params.id)
 
   if (!tour) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -47,5 +40,5 @@ export default function TourPage({ params }: TourPageProps) {
       </main>
       <Footer />
     </div>
-  );
+  )
 }

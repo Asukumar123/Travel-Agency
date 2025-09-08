@@ -1,6 +1,7 @@
 // lib/translations.ts - Enhanced with tour circuit translations
 export const translations = {
   en: {
+    
     // Navigation
     home: "Home",
     tours: "Tours",
@@ -30,6 +31,8 @@ export const translations = {
     customTours: "Custom Tours",
     groupTours: "Group Tours",
     privateTours: "Private Tours",
+
+    
     
     // Tour Details
     tourDuration: "Duration",
@@ -169,10 +172,10 @@ export const translations = {
     testimonialsSubtitle: "Hear from other travelers about their unforgettable experiences in India",
 
     // Newsletter
-    newsletterTitle: "Subscribe to Our Travel Newsletter",
-    newsletterSubtitle: "Get exclusive travel deals, destination guides, and cultural insights from Prince Kumar",
-    subscribe: "Subscribe",
-    
+   newsletterTitle: "Abonnez-vous à Notre Newsletter",
+    newsletterSubtitle: "Recevez des offres de voyage exclusives et des conseils culturels",
+    subscribe: "S'abonner",
+    subscribeSuccess: "Merci de vous être abonné!",
     // Footer
     footerTagline: "Authentic Indian travel experiences with personalized service and cultural immersion. Discover India differently with Prince Kumar.",
     quickLinks: "Quick Links",

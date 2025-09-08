@@ -84,7 +84,7 @@ const enhancedTours = [
     durationFr: "16 jours / 15 nuits", 
     price: "from €1,600",
     priceFr: "à partir de 1 600 €",
-    image: "/Gallery/Jaisalmer2.jpg",
+    image: "/majestic-rajasthan-palace-with-golden-sunset--indi.jpg",
     highlights: ["Thar Desert", "Heritage Hotels", "Camel Safari", "Village Homestays", "Folk Performances"],
     highlightsFr: ["Désert du Thar", "Hôtels Patrimoniaux", "Safari à Dos de Chameau", "Séjours Villageois", "Spectacles Folkloriques"],
     rating: 4.9,
