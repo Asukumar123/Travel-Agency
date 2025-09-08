@@ -64,9 +64,9 @@ export default function Newsletter() {
             <div className="mb-6">
               <CheckCircle className="h-16 w-16 mx-auto text-white" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight lg:text-4xl mb-4">
+            {/* <h2 className="text-2xl md:text-3xl font-bold tracking-tight lg:text-4xl mb-4">
               {t("subscribeSuccess")}
-            </h2>
+            </h2> */}
             <p className="max-w-[85%] text-primary-foreground/90 text-sm md:text-base">
               You'll receive the latest travel inspiration and exclusive offers from Prince Kumar.
             </p>
