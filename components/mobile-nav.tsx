@@ -9,7 +9,7 @@ import { Menu, MapPin, X } from "lucide-react"
 import { useTranslation } from "@/hooks/use-translation"
 import { LanguageToggle } from "./language-toggle"
 import { ThemeToggle } from "./theme-toggle"
-
+import Image from "next/image"
 interface MobileNavProps {
   items: {
     title: string
@@ -46,7 +46,14 @@ export function MobileNav({ items }: MobileNavProps) {
             className="flex items-center gap-2"
             onClick={handleLinkClick}
           >
-            <MapPin className="h-6 w-6 text-primary" />
+            <Image
+                          src="/logo2.png"
+                          alt="Voyage avec Prince Logo"
+                          className="h-8 w-auto"
+                          width={52}
+                          height={52}
+                          style={{ maxHeight: 32 }}
+                        />
             <span className="text-lg font-bold">Voyage avec Prince</span>
           </Link>
         </div>

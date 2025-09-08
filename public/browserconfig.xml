@@ -1,0 +1,11 @@
+export const browserConfig = `<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="/logo2.png"/>
+            <square150x150logo src="/logo2.png"/>
+            <square310x310logo src="/logo2.png"/>
+            <TileColor>#16a34a</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>`

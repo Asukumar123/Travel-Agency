@@ -1,5 +1,5 @@
 "use client"
-
+import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -146,12 +146,16 @@ export default function TourDetail({ tour }: TourDetailProps) {
               <Separator />
 
               <div className="space-y-2">
-                <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
-                  Request Quote
-                </Button>
-                <Button variant="outline" className="w-full bg-transparent">
-                  Contact Prince Kumar
-                </Button>
+                <Link href="/book">
+                  <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
+                    Request Quote
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="outline" className="w-full bg-transparent">
+                    Contact Prince Kumar
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>

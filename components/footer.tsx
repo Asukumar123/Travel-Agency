@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 export default function Footer() {
   return (
-    <footer className="border-t bg-muted/30 py-8 bg-blue-50">
+    <footer className="border-t bg-muted/30 py-8 bg-green-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="lg:col-span-1">

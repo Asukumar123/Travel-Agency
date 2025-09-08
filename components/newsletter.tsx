@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mail, CheckCircle, Loader2 } from "lucide-react"
 import { useState } from "react"
 import { useTranslation } from "@/hooks/use-translation"
-
 export default function Newsletter() {
   const [email, setEmail] = useState("")
   const [isSubscribing, setIsSubscribing] = useState(false)

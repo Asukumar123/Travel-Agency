@@ -1,0 +1,27 @@
+ {
+  "name": "Voyage avec Prince - Authentic India Travel",
+  "short_name": "Voyage Prince",
+  "description": "Discover authentic India with Prince Kumar - French-speaking guide",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo2.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["travel", "tourism", "business"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

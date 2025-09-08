@@ -28,7 +28,7 @@ import {
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { useTranslation } from "@/hooks/use-translation"
-
+import Image from "next/image"
 const tours = [
   { 
     id: "rajasthan-taj-mahal", 
@@ -280,9 +280,16 @@ export default function BookingForm() {
       {/* Header */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <MapPin className="h-8 w-8 text-primary" />
+         <Image
+                       src="/logo2.png"
+                       alt="Voyage avec Prince Logo"
+                       className="h-52 w-auto"
+                       width={72}
+                       height={72}
+                       style={{ maxHeight: 52 }}
+                     />
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-            {language === 'fr' ? '🏛️ Réservez Votre Aventure Indienne' : '🏛️ Book Your Indian Adventure'}
+            {language === 'fr' ? ' Réservez Votre Aventure Indienne' : ' Book Your Indian Adventure'}
           </h1>
         </div>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -840,13 +847,13 @@ export default function BookingForm() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button variant="outline" className="bg-transparent" asChild>
-              <a href="tel:+911112345678">
+              <a href="tel:+917870524178">
                 <Phone className="mr-2 h-4 w-4" />
                 {language === 'fr' ? 'Appeler maintenant' : 'Call Now'}
               </a>
             </Button>
             <Button variant="outline" className="bg-transparent" asChild>
-              <a href="mailto:prince@voyageavecprince.com">
+              <a href="mailto:ohprincekumar@gmail.com">
                 <Mail className="mr-2 h-4 w-4" />
                 {language === 'fr' ? 'Envoyer un e-mail' : 'Send Email'}
               </a>
