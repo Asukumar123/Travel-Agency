@@ -107,7 +107,7 @@ export default function Newsletter() {
                 <div className="space-y-2">
                   <Input
                     type="email"
-                    placeholder={t("newsletterPlaceholder")}
+                    
                     className="h-12 w-full rounded-md border-white/20 bg-white/20 px-4 py-3 text-white placeholder:text-white/70 focus:border-white focus:ring-white/30 focus:bg-white/30"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
